@@ -13,6 +13,7 @@ import org.fusesource.stomp.jms.message.StompJmsMessage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
 
@@ -71,7 +72,7 @@ public class ProcurementSchedulerJob extends Job {
     	
     	
     	
-    ClientResponse strResponse=ProcurementService.jerseyClient.create().resource(
+    ClientResponse strResponse=Client.create().resource(
     			"http://54.215.210.214:9000/orders").type("application/json").post(ClientResponse.class,body);    	
 	
     //String strResponse = ProcurementService.jerseyClient.resource(
